@@ -1,0 +1,165 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+* {
+    color: #515050;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+
+a:hover {
+    color: #A376C3;
+}
+
+img {
+    width: -webkit-fill-available;
+}
+
+.logo {
+    margin: 0;
+    margin-top: 8px;
+}
+
+.main-block .container {
+    padding: 10px 10px 10px 10px;
+    background-color: aquamarine;
+    border-radius: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 25px;
+    font-weight: 629;
+    color: #515050;
+}
+
+.s1 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#loading {
+    margin-top: 26.56px; 
+}
+
+.title {
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.buttons_menu {
+    margin-top: 36.5px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#settings-button {
+    height: 23px;
+    width: 23px;
+    background-image: url("../img/settings.png");
+}
+
+#settings-button:hover {
+    background-image: url("../img/settings_hover.png");
+}
+
+.decsription {
+    margin-bottom:10px;
+}
+
+#settings {
+    background: rgba(102, 102, 102, 0.5);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 2;
+}
+
+.pop-up {
+    width: 654px;
+    height: 402px;
+    padding-top: 40px;
+    padding-left: 37px;
+    padding-bottom: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background-color: #FFFFFF;
+}
+
+#settings:target {
+    display: block;
+}
+
+#close {
+    height: 30px;
+    width: 30px;
+    background-image: url("../img/close.png");
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+#close:hover {
+    background-image: url("../img/close_hover.png");
+}
+
+.popup-img {
+    height: 245px;
+    width: 580px;
+    margin-bottom: 29px;
+    background-position: top center;
+    background-size: cover;
+}
+
+.pr-text {
+    width: 580px;
+    margin-bottom: 10px;
+}
+
+.page-button {
+    width: 280px;
+    height: 60px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F6F1F8;
+    background: radial-gradient(#8A73C5 0%, #A797D0 67.24%, #C4BBDB 100%)
+}
+
+input {
+    width: 240px;
+    height: 30px;
+    border: 0;
+    border-bottom: 1px solid #FDB8D5;
+}
+
+input:focus {
+    outline: none;
+}
+
+#view_switcher {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+

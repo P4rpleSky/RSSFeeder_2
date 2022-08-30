@@ -1,0 +1,54 @@
+﻿<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>RSS Feeder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;628&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <h2 class="logo">RSS Feeder</h2>
+                </div>
+                <div class="offset-md-8 col-md-2">
+                    <div class="buttons_menu">
+                        <div id="settings">
+                            <div class="pop-up">
+								<h2>RSS Feeder Settings</h2>
+                                <form id="settings-switcher">
+                                    <p class="inp">
+                                        <label class="s1" for="rss_url">Сайт для отображения</label><br />
+                                        <input required class="s1" type="url" id="rss_url" />
+                                    </p>
+                                    <p class="inp">
+                                        <label class="s1" for="update_time">Частота обновления ленты (в секундах)</label><br />
+                                        <input required class="s1" type="number" min="0" id="update_time" />
+                                    </p>
+                                    <p class="inp">
+                                        <label class="s1" for="view_switcher">Форматированный вывод содержимого:</label>
+                                        <input checked class="s1" type="checkbox" id="view_switcher" />
+                                    </p>
+                                    <input type="submit" id="apply" class="page-button" value="Применить" />
+                                </form>
+                                <a href="#" id="close"></a>
+                            </div>
+                        </div>
+                        <a id="settings-button" href="#settings"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="main-block">
+        <div class="container">
+            <div class="row">
+                <h2>Loading...</h2>
+            </div>
+        </div>
+    </div>
+	<script src="/js/items-to-html_parser.js"></script>
+</body>
+</html>
