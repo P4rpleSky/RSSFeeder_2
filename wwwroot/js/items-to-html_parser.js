@@ -62,7 +62,7 @@ async function show_main_page() {
 
             items_section.innerHTML = `
                     <div class="row">
-                        <a class="title" href="${p.Link}">${p.Title}</a>
+                        <a class="title" href="${p.Link}" target="_blank" rel="noopener noreferrer">${p.Title}</a>
                     </div>
                     <div class="decsription row">
                         <div class="s3">${description}</div>
