@@ -9,12 +9,17 @@ body {
     background-size: cover;
 }
 
+.header {
+    height: 100px;
+}
+
 a:hover {
     color: #A376C3;
 }
 
 img {
-    width: -webkit-fill-available;
+    max-width: -webkit-fill-available;
+    max-width: -moz-available;
 }
 
 .logo {

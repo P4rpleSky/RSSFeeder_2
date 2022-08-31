@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.VisualBasic;
 using RSSFeeder_2.Models;
 using System;
+using System.Net;
 using System.Runtime;
 using System.Xml;
 using System.Xml.Linq;
