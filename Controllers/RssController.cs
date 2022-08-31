@@ -1,11 +1,7 @@
 ﻿using MarrubiumShop.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Hosting;
-using Microsoft.VisualBasic;
 using RSSFeeder_2.Models;
-using System;
 using System.Net;
-using System.Runtime;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -23,21 +19,28 @@ namespace RSSFeeder_2.Controllers
                 throw new NullReferenceException("Invalid config settings \".XML\" file!");
             var rssUrl = settings.Element("rss_url");
             var updateTime = settings.Element("update_time");
-            var host = settings.Element("host"); 
+            var ipAddress = settings.Element("ip_address"); 
             var port = settings.Element("port");
             var username = settings.Element("user_name");
             var password = settings.Element("password");
             
-            if (rssUrl is null || updateTime is null || host is null || port is null || username is null || password is null)
-                throw new ArgumentNullException("Invalid config arguments!");
-            
-            _configSettings = new ConfigSettings(
-                rssUrl.Value,
-                updateTime.Value,
-                host.Value,
-                port.Value,
-                username.Value,
-                password.Value);
+            if (rssUrl is null || updateTime is null || ipAddress is null || port is null || username is null || password is null)
+                throw new ArgumentNullException("Some config arguments are not predefined!");
+
+            try
+            {
+                _configSettings = new ConfigSettings(
+                    rssUrl.Value,
+                    updateTime.Value,
+                    ipAddress.Value,
+                    port.Value,
+                    username.Value,
+                    password.Value);
+            }
+            catch
+            {
+                throw new ArgumentException("Invalid config arguments!");
+            }
         }
 
         public IActionResult Main()
@@ -53,9 +56,16 @@ namespace RSSFeeder_2.Controllers
                 throw new BadHttpRequestException("Invalid request data!");
             XmlTextReader xmlReader = new XmlTextReader(rssUrl);
             XmlUrlResolver resolver = new XmlUrlResolver();
-            //WebProxy webProxy = new WebProxy(_configSettings.Host, _configSettings.Port);
-            //webProxy.Credentials = _configSettings.Credentials;
-            //resolver.Proxy = webProxy;
+            if (_configSettings.IPAddress.ToString() != "" && _configSettings.Port != 0)
+            {
+                WebProxy webProxy = new WebProxy(_configSettings.IPAddress, _configSettings.Port);
+                if (_configSettings.Credentials.UserName != "" && _configSettings.Credentials.Password != "")
+                {
+                    resolver.Credentials = _configSettings.Credentials;
+                    webProxy.Credentials = _configSettings.Credentials;
+                }
+                resolver.Proxy = webProxy;
+            }
             xmlReader.XmlResolver = resolver;
             XDocument document = XDocument.Load(xmlReader);
             var items = GetItemsFromXml(document);

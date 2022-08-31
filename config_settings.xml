@@ -2,8 +2,8 @@
 <settings>
 	<rss_url>https://habr.com/rss/interesting/</rss_url>
 	<update_time>90</update_time>
-	<host>66.29.154.103</host>
-	<port>3128</port>
-	<user_name>aa</user_name>
-	<password>bb</password>
+	<ip_address>127.0.0.1</ip_address>
+	<port>8899</port>
+	<user_name>anonymous</user_name>
+	<password>123456</password>
 </settings>
